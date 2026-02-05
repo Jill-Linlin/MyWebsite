@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="zh-TW" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>林子容的Website</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('home')"
+            ><span class="zh">首頁</span><span class="en">Home</span></a
+          >
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('about')"
+            ><span class="zh">關於我</span><span class="en">About</span></a
+          >
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleLang()">中/EN</button>
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+        </li>
+      </ul>
+    </nav>
+
+    <header id="home" class="content-section active">
+      <div class="hero-card">
+        <div class="card-left">
+          <div class="profile-img-wrapper">
+            <img src="assets/林子容 (3).png" alt="林子容" />
+          </div>
+          <h2>
+            <span class="zh">林子容</span><span class="en">Zirong Lin</span>
+          </h2>
+          <p class="job-title en-text">
+            JAVA WEB Engineer / Full-stack Developer
+          </p>
+        </div>
+        <div class="card-right">
+          <h1 class="hello-text">Hello!</h1>
+          <div class="zh">
+            <h3>I'm Zi-rong Lin!正朝向全端邁進的 Java 工程師。</h3>
+            <p class="card-desc">
+              我是林子容，應屆畢業於國立台北科技大學，資訊與財金管理系。我熱衷於研究後端架構與
+              Web 技術，目前擅長 Java (Spring Boot)
+              與前端基礎開發。我正在尋找能發揮所學、並能挑戰技術深度的開發職位，歡迎點擊下方按鈕了解更多我的學習歷程與專案作品。
+            </p>
+          </div>
+          <div class="en">
+            <h3>
+              Building Scalable Solutions with Java | Aspiring Full-Stack
+              Developer
+            </h3>
+            <p class="card-desc">
+              I am Zi-rong Lin, a National Taipei University of Technology
+              graduate (Information and Finance Management). Driven by a passion
+              for backend architecture, I’ve built a solid foundation in Java
+              (Spring Boot) and modern web technologies. I’m currently looking
+              for opportunities to contribute my skills to a professional team
+              and dive deeper into complex technical challenges. Check out my
+              portfolio below to see what I’ve been working on!
+            </p>
+          </div>
+          <div class="card-btns">
+            <button class="btn main-btn" onclick="showSection('about')">
+              <span class="zh">關於我</span><span class="en">About Me</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="content-section">
+      <div class="container">
+        <h2 class="en-text about-title">
+          <span class="zh">關於我</span><span class="en">About Me</span>
+        </h2>
+
+        <div class="about-flex">
+          <div class="about-photo">
+            <img src="assets/林子容 (3).png" alt="子容的照片" />
+            <div class="photo-contact">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="zh">新北市</span>
+                <span class="en">New Taipei City</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i><span>+886 958-421-131</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i><span>zirong0421@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-graduation-cap"></i>
+              <span class="zh">台北科技大學-資訊與財金學系</span>
+              <span class="en">NTUT-Information&Finance</span>
+            </div>
+          </div>
+
+          <div class="about-content-wrapper">
+            <div class="about-intro">
+              <div class="zh">
+                <p>
+                  你好！我是林子容，畢業於國立台北科技大學。 我是一位專注於 Java
+                  後端領域的開發者。我對程式開發有著極大的熱忱，享受在面對複雜邏輯與
+                  Bug
+                  時，一步步抽絲剝繭並找到最佳解法的過程。對我而言，寫程式不僅是工作，更是驅動我不斷自學與進步的動力。
+                  自從確立了軟體工程師的目標後，我進行了密集的技術訓練。從 Java
+                  物件導向基礎出發，一路延伸到使用 Spring Boot 建構後端
+                  API，再到獨立完成 React 前端網頁的串接。我的 ESTP/ISTP
+                  特質讓我在面對新挑戰時具備極強的適應力與執行力。我已準備好將這份專注力投入到專業團隊中，共同打造優秀的軟體產品。
+                </p>
+              </div>
+
+              <div class="en">
+                <p>
+                  Hello! I’m Zi-rong Lin, a graduate of National Taipei
+                  University of Technology. I am a developer specializing in the
+                  Java backend ecosystem. I have a strong passion for
+                  programming and genuinely enjoy the process of breaking down
+                  complex logic to solve tough bugs. To me, coding is not just a
+                  job; it’s what drives my continuous self-learning and
+                  improvement. Since setting my goal to become a software
+                  engineer, I have undergone intensive technical training. I
+                  started from core Java OOP concepts and advanced to building
+                  RESTful APIs with Spring Boot, ultimately connecting them to
+                  this React-based frontend. My ESTP/ISTP traits give me strong
+                  adaptability and execution skills when facing new challenges.
+                  I am ready to bring my focus and technical skills to a
+                  professional engineering team.
+                </p>
+
+                <p></p>
+              </div>
+            </div>
+            <div class="skills-section">
+              <!-- <h3 class="en-text">
+                <span class="zh"> 技能</span><span class="en"> Skills</span>
+              </h3> -->
+              <div class="skill-tags">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Kotlin</span>
+                <span class="skill-tag">n8n Automation</span>
+                <span class="skill-tag">MAKE</span>
+                <span class="skill-tag">GoogleCloudPlatform</span>
+                <span class="skill-tag">Word/Excel/PPT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-section">
+          <h3 id="projects" class="en-text project-title">
+            <span class="zh">專案</span><span class="en">Projects</span>
+          </h3>
+
+          <div class="project-grid">
+            <div class="project-card">
+              <div class="project-info">
+                <h4 class="en-text">
+                  <span class="zh"> Task Management System</span>
+                  <span class="en"> Task Management System</span>
+                </h4>
+                <p class="zh">
+                  基於 Spring Boot 架構開發的任務管理系統。 後端整合 MySQL
+                  資料庫，並透過 Spring Data JPA 與 Hibernate
+                  實現資料持久化管理，並導入 JWT 機制確保
+                  API呼叫的安全與身分驗證。 前端則採用 React 搭配 JavaScript
+                  與CSS，打造簡潔且直觀的使用者互動介面。
+                </p>
+                <p class="en">
+                  Developed a task management system using Spring Boot and
+                  MySQL, utilizing Spring Data JPA and Hibernate for efficient
+                  data persistence. integrated JWT to ensure secure, stateless
+                  authentication. Built a clean and intuitive user interface
+                  using React, JavaScript, and CSS to enhance the overall user
+                  experience.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span>Java</span>
+                  <span>Spring Boot</span>
+                  <span>MySQL</span>
+                  <span>React</span>
+                  <span>Javascript</span>
+                </div>
+
+                <a href="projects/project1.html" class="project-link"
+                  >View Detail <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-info">
+                <h4 class="en-text">MyWebsite</h4>
+                <p class="zh">
+                  運用 HTML5 語意化標籤與 CSS3 技術，獨立開發個人品牌網站。透過
+                  Flexbox 與 Grid
+                  佈局確保跨裝置的響應式設計（RWD），並優化前端加載效能。
+                </p>
+                <p class="en">
+                  Developed a personal portfolio website using semantic HTML5
+                  and advanced CSS3 techniques. Implemented Responsive Web
+                  Design (RWD) using Flexbox and Grid to ensure a seamless user
+                  experience across all devices.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>RWD</span>
+                </div>
+
+                <a href="projects/project2.html" class="project-link"
+                  >View Detail <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-grid">
+            <div class="project-card">
+              <div class="project-info">
+                <h4 class="en-text">
+                  <span class="zh"> 自動化工作流程</span>
+                  <span class="en"> Auto Workflow</span>
+                </h4>
+                <p class="zh">
+                  導入 n8n
+                  自動化工作流平台，成功建置『自動化開立發票』與『年度續約提醒』系統，
+                  優化財務與客戶生命週期管理。同時整合 Google Cloud Platform
+                  (GCP) 生成式 AI 技術，
+                  開發操作手冊自動生成工具，顯著降低重複性行政作業的人力成本，達成流程自動化。
+                </p>
+                <p class="en">
+                  Leveraged n8n to architect automated workflows for invoicing
+                  and annual renewal notifications, streamlining financial and
+                  subscription lifecycles. Integrated Google Cloud Platform
+                  (GCP) Generative AI to automate the creation of operational
+                  manuals, significantly reducing manual overhead and enhancing
+                  operational efficiency.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span>n8n</span>
+                  <span>GoogleCloudPlatform</span>
+                </div>
+
+                <a href="projects/project3.html" class="project-link"
+                  >View Detail <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-info">
+                <h4 class="en-text">Android App-Daller</h4>
+                <p class="zh">
+                  採用 Kotlin 作為核心開發語言，並基於 Gradle
+                  建構系統進行專案管理與依賴維護。 後端資料存取整合 PostgreSQL
+                  關聯式資料庫，運用 Android Studio
+                  生態系工具，打造流暢的使用者介面。
+                </p>
+                <p class="en">
+                  Developed a high-performance Android app using Kotlin and
+                  managed the build lifecycle with Gradle. Integrated RESTful
+                  APIs using industry-standard libraries to facilitate seamless
+                  data exchange with a remote PostgreSQL database.Focused on
+                  implementing clean architecture and asynchronous data handling
+                  to ensure a responsive user experience.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span>Kotlin</span>
+                  <span>Android Studio</span>
+                  <span>PostgreSQL</span>
+                </div>
+
+                <a href="projects/project4.html" class="project-link"
+                  >View Detail <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="en-text timeline-sub-title">
+          <span class="zh">經歷</span><span class="en">Experience</span>
+        </h3>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2025.11-Present</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">準備階段</span>
+                <span class="en">Preparation stage</span>
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>JAVA 入門教學課程</li>
+                  <li>JAVA 物件導向教學課程</li>
+                  <li>JAVA Spring Boot 教學手冊</li>
+                  <hr />
+                  <p>Task Management System 完成</p>
+                  <p>MyWebsite 完成</p>
+                </ul>
+                <ul class="en">
+                  <li>Introduction to Java</li>
+                  <li>Java Object-Oriented Learning Course</li>
+                  <li>Java Spring Boot Tutorial</li>
+                  <hr />
+                  <p>Task Management System Completed</p>
+                  <p>MyWebsite Completed</p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2025.09-2025.10</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">青年百億圓夢計畫-貝里斯橘道鎮實習計畫</span>
+                <span class="en"
+                  >Belize Orange Road Town Internship Program</span
+                >
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>文化體驗</li>
+                  <li>自動化證照申請</li>
+                  <li>在地社區活動安排</li>
+                  <hr />
+                  <p>GCP自動化證照申請 完成</p>
+                </ul>
+                <ul class="en">
+                  <li>Cultural Experiences</li>
+                  <li>Automated License Application</li>
+                  <li>Local Community Activity Arrangements</li>
+                  <hr />
+                  <p>GCP Automated License Application Completed</p>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2025.03-2025.07</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">普魯士國際-專案經理</span>
+                <span class="en">Project Manager</span>
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>開發時程安排</li>
+                  <li>測試軟體</li>
+                  <li>開發自動化流程</li>
+                  <hr />
+                  <p>N8N自動化流程 完成</p>
+                  <p>GCP自動生成操作手冊 完成</p>
+                </ul>
+                <ul class="en">
+                  <li>Development Schedule</li>
+                  <li>Testing Software</li>
+                  <li>Automated Development Process</li>
+                  <hr />
+                  <p>N8N Automation Process Completed</p>
+                  <p>GCP Automatic Manual Generation Completed</p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2024.06-2025.02</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">智上云創股份有限公司-產品經理實習生</span>
+                <span class="en">Product Manager Intern</span>
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>Banner製作</li>
+                  <li>產品簡報製作</li>
+                  <li>軟體資訊維護</li>
+                  <li>TutorABC專案管理</li>
+                  <hr />
+                  <p>2024.07-2025.01-Daller 專案完成</p>
+                </ul>
+                <ul class="en">
+                  <li>Banner Creation</li>
+                  <li>Product Briefing Creation</li>
+                  <li>Software Information Maintenance</li>
+                  <li>TutorABC Project Management</li>
+                  <hr />
+                  <p>Daller Project Completed</p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2023.09-2024.06</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">徐麗瓊會計事務所-會計工讀生</span>
+                <span class="en">Accounting part-time</span>
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>協助製作傳票</li>
+                  <li>整理憑證</li>
+                  <li>製作財務報表</li>
+                  <li>日常分錄登入</li>
+                </ul>
+                <ul class="en">
+                  <li>Assist in preparing vouchers</li>
+                  <li>Organize vouchers</li>
+                  <li>Prepare financial statements</li>
+                  <li>Log in daily journal entries</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2022.07-2023.07</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">北科采音吉他社社長</span>
+                <span class="en">Guitar Club President</span>
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>2023.12舉辦赤弦獎</li>
+                  <li>2023.07舉辦金山國小暑期音樂營</li>
+                  <li>2023.03全國社團評鑑優勝</li>
+                  <li>2022.11 校內社團評鑑特優</li>
+                  <li>2022.07 成為北科采音吉他社社長</li>
+                </ul>
+                <ul class="en">
+                  <li>Held the Chixian Award</li>
+                  <li>Held the Jinshan Elementary School Summer Music Camp</li>
+                  <li>Won the National Club Evaluation</li>
+                  <li>
+                    Awarded Special Excellence in the School Club Evaluation
+                  </li>
+                  <li>Became the President of the Beike Caiyin Guitar Club</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date en-text">2021.07-2025.06</div>
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h4 class="en-text">
+                <span class="zh">進入台北科技大學</span>
+                <span class="en">Entering University</span>
+              </h4>
+
+              <div class="timeline-details">
+                <ul class="zh">
+                  <li>2021.07 進入台北科技大學-資訊與財金管理系</li>
+                  <li>2025.06 台北科技大學-資訊與財金管理系畢業</li>
+                </ul>
+                <ul class="en">
+                  <li>
+                    Entering the Department of Information and Financial
+                    Management,NTUT
+                  </li>
+                  <li>
+                    Graduated from the Department of Information and Financial
+                    Management,NTUT
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

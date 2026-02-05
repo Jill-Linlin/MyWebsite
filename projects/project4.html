@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      // 在 CSS 載入前就決定主題，防止白色閃屏
+      const savedTheme = localStorage.getItem("preferred-theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    </script>
+  </head>
+  <body class="detail-page">
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('home')"
+            ><span class="zh">首頁</span><span class="en">Home</span></a
+          >
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('about')"
+            ><span class="zh">關於我</span><span class="en">About</span></a
+          >
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleLang()">中/EN</button>
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="detail-header">
+        <h1 class="en-text">
+          <span class="zh">Android App-Daller</span>
+          <span class="en">Android App-Daller</span>
+        </h1>
+        <div class="project-tech-tag">
+          <span class="skill-tag">Kotlin</span>
+          <span class="skill-tag">JWT</span>
+          <span class="skill-tag">Gradle</span>
+          <span class="skill-tag">RESTful API</span>
+          <span class="skill-tag">PostgreSQL</span>
+        </div>
+      </header>
+
+      <article class="detail-body">
+        <div class="project-card-full">
+          <section class="detail-section">
+            <h3 class="zh">開發背景</h3>
+            <h3 class="en">Background</h3>
+            <p class="zh">
+              本專案「Daller」是我大學時期的畢業製作，與團隊共同開發的 Android
+              應用程式。作為組內的後端與資料整合負責人，我主要承擔了 RESTful API
+              的設計開發以及 PostgreSQL
+              資料庫的架構與串接。這是我首次接觸全端開發流程，在完全沒有相關經驗的情況下，我透過與
+              AI 協作、自主搜尋技術文件並不斷嘗試錯誤（Trial and
+              Error），從零開始建構出支撐 App
+              運作的核心邏輯，這段經驗極大地鍛鍊了我快速掌握新技術與解決問題的能力。
+            </p>
+            <p class="en">
+              "Daller" is my university graduation capstone project, a
+              collaborative Android application developed within a team. Serving
+              as the backend and integration lead, I was primarily responsible
+              for RESTful API development and database logic implementation.
+              Despite having no prior experience in backend development at the
+              time, I successfully built the system from the ground up by
+              leveraging AI-assisted learning and an iterative trial-and-error
+              approach. This experience significantly enhanced my ability to
+              master new technologies independently and solve complex technical
+              challenges under pressure.
+            </p>
+          </section>
+          <section class="detail-section">
+            <h3 class="zh section-title">技術細節</h3>
+            <h3 class="en section-title">Technical Details</h3>
+
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-network-wired"></i>
+                  <span class="zh">API 設計與架構</span
+                  ><span class="en">API Design & Architecture</span>
+                </h4>
+                <p class="zh">
+                  使用 Kotlin 配合現代開發架構，設計並實作符合 RESTful 標準的
+                  API 接口，確保 Android
+                  介面與後端能進行高效、穩定的非同步數據交換。
+                </p>
+                <p class="en">
+                  Designed and implemented RESTful APIs using Kotlin and modern
+                  architecture, ensuring efficient and stable asynchronous data
+                  exchange between Android UI and backend.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-user-shield"></i>
+                  <span class="zh">身分驗證安全性 (JWT)</span
+                  ><span class="en">Authentication (JWT)</span>
+                </h4>
+                <p class="zh">
+                  實作基於 JWT 的安全驗證機制。負責設計登入邏輯與 Token
+                  簽發流程，確保資料傳輸安全性與無狀態管理。
+                </p>
+                <p class="en">
+                  Implemented JWT-based security authentication. Responsible for
+                  login logic and token issuance, ensuring secure data
+                  transmission and stateless management.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-database"></i>
+                  <span class="zh">資料庫管理 (PostgreSQL)</span
+                  ><span class="en">Database Management</span>
+                </h4>
+                <p class="zh">
+                  負責 PostgreSQL 資料庫設計，包含 Table Schema
+                  設計與優化複雜查詢邏輯，以確保大數據量下的讀取效率。
+                </p>
+                <p class="en">
+                  Managed PostgreSQL database design, including Schema design
+                  and optimization of complex queries to ensure high read
+                  efficiency under large data volumes.
+                </p>
+              </div>
+            </div>
+
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-tools"></i>
+                  <span class="zh">專案自動化管理</span
+                  ><span class="en">Project Automation</span>
+                </h4>
+                <p class="zh">
+                  利用 Gradle
+                  進行依賴管理與構建自動化，有效整合第三方庫並簡化開發流程。
+                </p>
+                <p class="en">
+                  Utilized Gradle for dependency management and build
+                  automation, effectively integrating third-party libraries and
+                  streamlining development.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-brain"></i>
+                  <span class="zh">AI 協作開發流程</span
+                  ><span class="en">AI-Assisted Development</span>
+                </h4>
+                <p class="zh">
+                  積極利用 AI
+                  工具進行代碼除錯、邏輯重構與技術預研，體現利用現代工具達成專案目標的適應力。
+                </p>
+                <p class="en">
+                  Actively leveraged AI tools for debugging, refactoring, and
+                  research, demonstrating adaptability in using modern tools to
+                  achieve project goals.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h3 class="zh">開發畫面</h3>
+            <h3 class="en">System Screenshots</h3>
+
+            <div class="project-screenshots">
+              <div class="screenshot-item vertical">
+                <video
+                  class="project-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  poster="../assets/1.png"
+                >
+                  <source src="../assets/p4/UI&UX畫面.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="zh">UI&UX</p>
+                <p class="en">UI&UX</p>
+              </div>
+
+              <div class="screenshot-item vertical">
+                <video
+                  class="project-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  poster="../assets/1.png"
+                >
+                  <source
+                    src="../assets/p4/模擬器錄影畫面.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="zh">模擬器畫面</p>
+                <p class="en">mulator View</p>
+              </div>
+
+              <div class="screenshot-item">
+                <img src="../Assets/p4/Untitled-第2頁.jpg" alt="圖0" />
+                <p class="zh">圖0</p>
+                <p class="en">Layer 0</p>
+              </div>
+              <div class="screenshot-item">
+                <img
+                  src="../Assets/p4/Untitled-第6頁.jpg "
+                  alt="資料庫 schema 圖"
+                />
+                <p class="zh">資料庫 schema 圖</p>
+                <p class="en">schema</p>
+              </div>
+              <div class="screenshot-item">
+                <img
+                  src="../Assets/p4/Untitled-第5頁.jpg "
+                  alt="資料庫 schema 圖"
+                />
+                <p class="zh">實體關係圖</p>
+                <p class="en">ER Model</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

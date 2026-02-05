@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      // 在 CSS 載入前就決定主題，防止白色閃屏
+      const savedTheme = localStorage.getItem("preferred-theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    </script>
+  </head>
+  <body class="detail-page">
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('home')"
+            ><span class="zh">首頁</span><span class="en">Home</span></a
+          >
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('about')"
+            ><span class="zh">關於我</span><span class="en">About</span></a
+          >
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleLang()">中/EN</button>
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="detail-header">
+        <h1 class="en-text">
+          <span class="zh">My Website</span>
+          <span class="en">My Website</span>
+        </h1>
+        <div class="project-tech-tag">
+          <span class="skill-tag">Html</span>
+          <span class="skill-tag">Javascript</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+        </div>
+      </header>
+
+      <article class="detail-body">
+        <div class="project-card-full">
+          <section class="detail-section">
+            <h3 class="zh">開發背景</h3>
+            <h3 class="en">Background</h3>
+            <p class="zh">
+              本專案為一個個人化響應式履歷與作品集網站，
+              旨在透過實踐網頁基礎技術（HTML/CSS/JS），
+              打造一個直觀且專業的個人品牌入口點。開發重點在於提升使用者導覽體驗，
+              並實作現代網頁常見的功能需求，如多語系環境與個人化視覺風格切換。
+            </p>
+            <p class="en">
+              This project is a personal, responsive portfolio and resume
+              website designed to showcase my professional skills and
+              experience. Developed using core web technologies (HTML/CSS/JS),
+              the site serves as a centralized hub for my personal branding. The
+              primary focus was on optimizing user experience (UX) and
+              implementing modern web features such as multi-language support
+              and personalized theme switching.
+            </p>
+            <div class="link-wrapper">
+              <h3 class="zh">連結:</h3>
+              <h3 class="en">Link:</h3>
+
+              <a
+                href="https://github.com/Jill-Linlin/MyWebsite"
+                target="_blank"
+                class="github-link"
+              >
+                <i class="fa-brands fa-github"></i>
+                <span class="zh">HTML程式碼 </span>
+                <span class="en">HTML Repo</span>
+              </a>
+            </div>
+          </section>
+          <section class="detail-section">
+            <h3 class="zh section-title">技術細節</h3>
+            <h3 class="en section-title">Technical Details</h3>
+
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-code"></i>
+                  <span class="zh">核心技術</span
+                  ><span class="en">Core Technology</span>
+                </h4>
+                <p class="zh">
+                  使用 HTML5 語意化標籤、CSS3 與原生 JavaScript (Vanilla JS)
+                  進行開發，確保網站的高效能與跨瀏覽器相容性。
+                </p>
+                <p class="en">
+                  Developed using HTML5 semantic tags, CSS3, and Vanilla
+                  JavaScript to ensure high performance and cross-browser
+                  compatibility.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-moon"></i>
+                  <span class="zh">深淺色模式</span
+                  ><span class="en">Theming</span>
+                </h4>
+                <p class="zh">
+                  利用 CSS 變數配合 JavaScript 監聽事件實作切換功能，並使用
+                  localStorage 紀錄偏好，確保重新整理後仍能保留設定。
+                </p>
+                <p class="en">
+                  Implemented theme switching using CSS Variables and JS event
+                  listeners, with localStorage to persist user preferences
+                  across sessions.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-language"></i>
+                  <span class="zh">多語系支援</span
+                  ><span class="en">Internationalization</span>
+                </h4>
+                <p class="zh">
+                  實作中英文切換功能，透過 JavaScript 管理內容映射
+                  (Mapping)，讓使用者能在一鍵之間流暢切換閱讀語言。
+                </p>
+                <p class="en">
+                  Features seamless English-Chinese switching via JavaScript
+                  content mapping, allowing users to toggle languages instantly.
+                </p>
+              </div>
+            </div>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-folder-open"></i>
+                  <span class="zh">頁面導覽與結構</span
+                  ><span class="en">Navigation & Structure</span>
+                </h4>
+                <p class="zh">
+                  採用多頁面架構
+                  (MPA)，透過優化的目錄結構與超連結確保首頁、專案列表與關於我頁面之間的流暢切換。
+                </p>
+                <p class="en">
+                  Utilizes a Multi-Page Architecture (MPA) with an optimized
+                  directory structure to ensure smooth navigation between all
+                  site pages.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-mobile-alt"></i>
+                  <span class="zh">響應式設計</span
+                  ><span class="en">Responsive Design</span>
+                </h4>
+                <p class="zh">
+                  使用 CSS Media Queries
+                  確保網頁在手機、平板與桌機上皆有完美的閱讀體驗。
+                </p>
+                <p class="en">
+                  Employs CSS Media Queries to provide an optimal viewing and
+                  reading experience across mobile, tablet, and desktop devices.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h3 class="zh">開發畫面</h3>
+            <h3 class="en">System Screenshots</h3>
+            <div class="project-screenshots">
+              <div class="screenshot-item">
+                <img
+                  src="../Assets/p2/暗黑及英文模式.png"
+                  alt="暗黑及英文模式"
+                />
+                <p class="zh">暗黑及英文模式</p>
+                <p class="en">Dark and English Model</p>
+              </div>
+              <div class="screenshot-item">
+                <img
+                  src="../Assets/p2/明亮及中文模式.png"
+                  alt="明亮及中文模式"
+                />
+                <p class="zh">明亮及中文模式</p>
+                <p class="en">Light and Mandarin Model</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

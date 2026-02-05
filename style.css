@@ -1,0 +1,864 @@
+/* 針對整個頁面的捲動條 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #b88e5d; /* 你的主題咖啡色 */
+  border-radius: 5px;
+}
+
+:root {
+  --bg-color: #f5e6d3; /* 淺色首頁背景 */
+  --section-bg: #ffffff; /* 內頁背景 */
+  --text-color: #333333; /* 主要文字顏色 */
+  --card-bg: #ffffff; /* 卡片背景 */
+  --navbar-bg: rgba(199, 153, 93, 0.95);
+  --accent-color: #ca9b6e; /* 你的咖啡金色 */
+  --desc-text: #666; /* 描述文字顏色 */
+  --border-color: #eee;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a; /* 深色背景 */
+  --section-bg: #2d2d2d;
+  --text-color: #f5f5f5;
+  --card-bg: #3d3d3d;
+  --navbar-bg: rgba(60, 45, 30, 0.95);
+  --desc-text: #bbb;
+  --border-color: #444;
+  --accent-color: #a18061;
+}
+
+/* --- 2. 語言切換隱藏邏輯 --- */
+[lang="zh-TW"] .en {
+  display: none;
+}
+[lang="en"] .zh {
+  display: none;
+}
+
+body,
+html {
+  margin: 0;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s;
+  scroll-behavior: smooth;
+}
+
+/* 導覽列 */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-family: "Fira Code", "Courier New", monospace; /* 使用等寬字體 */
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff; /* 改成亮白色增加對比 */
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 括號的部分用主題色點綴 */
+.logo .bracket {
+  color: #b88e5d; /* 你的金棕主題色 */
+  font-weight: 900;
+  margin: 0 5px;
+}
+
+/* 滑鼠滑過的發光效果 */
+.logo:hover {
+  color: #b88e5d;
+  text-shadow: 0 0 8px rgba(184, 142, 93, 0.6);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 切換按鈕樣式 */
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+/* 分頁基礎設定 */
+.content-section {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: var(--section-bg);
+  overflow-y: auto;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.content-section.active {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease;
+}
+
+/* 首頁 Hero Card (你的原版設計) */
+#home.active {
+  background: var(--bg-color);
+  top: 0;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: row;
+  width: 950px;
+  max-width: 90%;
+  height: 550px;
+  background: var(--card-bg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-left {
+  background: var(--accent-color);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  box-sizing: border-box;
+}
+.card-right {
+  width: 60%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.profile-img-wrapper img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 原本的字體設定 */
+.en-text {
+  font-family: "Crimson Text", serif;
+}
+.hello-text {
+  font-size: 80px;
+  margin: 0;
+  line-height: 1;
+  font-family: "Crimson Text", serif;
+}
+.card-desc {
+  color: var(--desc-text);
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+}
+.main-btn {
+  background: #3498db;
+  color: white;
+}
+.outline-btn {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+}
+
+.about-flex {
+  display: flex;
+  justify-content: center; /* 讓內容在容器內水平置中 */
+  align-items: flex-start;
+  gap: 50px; /* 照片與文字的間距 */
+
+  /* 關鍵修改 */
+  max-width: 1200px; /* 1. 限制整個「照片+文字」組合的最大寬度 */
+  margin: 0 auto; /* 2. 讓這整個 1200px 的區塊在螢幕正中間 */
+  width: fit-content; /* 3. 讓容器寬度根據內容自動調整，不要強制撐開 */
+}
+.about-title {
+  /* 額外增加上方間距 */
+  margin-bottom: 1px;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  position: relative; /* 確保它在正確的層級 */
+  z-index: 1;
+}
+
+.about-intro {
+  flex: 1;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0 20px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.about-photo {
+  flex-shrink: 0;
+  width: 250px; /* 給照片區塊一個固定寬度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-photo img {
+  width: 150px; /* 圖片寬度 */
+  height: 150px; /* 圖片高度 */
+  border-radius: 50%; /* 圓形 */
+  object-fit: cover; /* 確保圖片比例正確不變形 */
+  border: 5px solid var(--accent-color); /* 加上咖啡金邊框，增加設計感 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-intro p {
+  margin-bottom: 10px;
+}
+
+.about-photo img:hover {
+  transform: scale(1.05); /* 滑鼠移上去稍微放大 */
+}
+
+/* 手機版適配：當螢幕寬度小於 768px 時，圖片排到文字上方 */
+@media (max-width: 768px) {
+  .about-flex {
+    display: flex;
+    justify-content: center; /* 讓內容在超大螢幕時水平置中 */
+    align-items: flex-start;
+    gap: 50px; /* 照片與文字的固定間距，你可以調小一點 */
+
+    max-width: 1100px; /* 關鍵：限制最大寬度，防止在大螢幕散開 */
+    margin: 0 auto; /* 關鍵：讓整個容器置中 */
+    padding: 40px 20px;
+  }
+
+  .about-photo img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.about-content-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 800px;
+}
+
+/* 聯絡資訊區塊 */
+.photo-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 每一行聯絡資訊的間距 */
+  /* width: 100%; */
+  margin-top: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; 在照片下方置中顯示 */
+  gap: 10px; /* 圖示與文字的間距 */
+  color: var(--secondary-text);
+  font-size: 16px;
+}
+
+/* 圖示顏色調整，呼應你的品牌金 */
+.contact-item i {
+  color: var(--accent-color);
+  width: 18px; /* 固定寬度讓文字對齊更整齊 */
+  text-align: center;
+}
+
+.contact-item span {
+  font-family: "Crimson Text", serif; /* 英文資訊使用你喜歡的字體 */
+  letter-spacing: 0.5px;
+}
+
+/* 時間軸副標題 */
+.timeline-sub-title {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* 確保英文介紹在 Crimson Text 下顯得優雅 */
+.about-intro .en {
+  font-family: "Crimson Text", serif;
+  font-size: 1.2em; /* 英文通常看起來較小，稍微調大一點 */
+}
+
+.about-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 左右平分 */
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.skills-section {
+  max-width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags {
+  display: flex;
+  max-width: 100%;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 1px;
+}
+
+/* 技能標籤樣式 */
+.skill-tag {
+  background: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 5px;
+  transition: all 0.3s ease; /* 流暢的變化效果 */
+}
+
+.skill-tag:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-3px); /* 輕微上浮感 */
+}
+
+/* 專案標題樣式 */
+.project-title {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+/* 專案網格 */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* 自動適應寬度 */
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+/* 專案卡片設計 */
+.project-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* 往上漂浮 */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent-color);
+}
+
+.project-card h4 {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+/* 專案內的小標籤 */
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.project-tech-tags span {
+  font-size: 11px;
+  background: rgba(199, 153, 93, 0.1); /* 淡淡的金色背景 */
+  color: var(--accent-color);
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* 連結樣式 */
+.project-link {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 時間軸樣式 */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-top: 20px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent-color);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+.timeline-dot {
+  position: absolute;
+  left: -47px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  border: 4px solid var(--section-bg);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+.timeline-content {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 詳情頁專屬設定 */
+.detail-page {
+  background-color: var(--section-bg); /* 使用你原本的淺灰色背景 */
+  padding-top: 100px;
+  min-height: 100vh;
+  display: block;
+}
+
+/* 內容卡片設計 */
+.project-card-full {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+}
+
+.detail-header h1 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  padding: 20px;
+  text-align: center;
+}
+
+.project-tech-tag {
+  display: flex;
+  flex-wrap: wrap; /* 允許標籤過多時自動換行 */
+  justify-content: center; /* 關鍵：讓所有標籤（包含換行後的）水平居中 */
+  align-items: center; /* 垂直居中（若高度不等時有用） */
+  gap: 12px; /* 增加間距讓視覺更開闊 */
+  margin: 20px auto; /* 上下留白，並確保容器本身也置中 */
+  width: 100%; /* 確保容器佔滿寬度 */
+
+  /* 移除原本的 padding-left/right，改用 max-width 限制內容範圍會更美觀 */
+  max-width: 900px;
+  padding: 0 20px; /* 僅留一點手機版的安全邊距 */
+}
+
+.detail-section {
+  margin-bottom: 40px;
+}
+
+.detail-section h3 {
+  border-left: 4px solid #b88e5d;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+.link-wrapper {
+  display: flex;
+  flex-direction: row; /* 讓多個連結垂直排列，或是用 row 水平排列 */
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.github-link {
+  display: flex;
+  align-items: center; /* 垂直置中對齊 */
+  gap: 8px; /* 圖示與文字間距 */
+  text-decoration: none;
+  font-weight: 500;
+
+  /* 關鍵：使用主題變數，確保同步變色 */
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* 懸停效果：圖示與文字一起變色 */
+.github-link:hover {
+  color: #b88e5d;
+  padding-left: 5px; /* 稍微向右位移，增加動態感 */
+}
+
+.github-link i {
+  font-size: 1.2rem; /* 圖示稍微放大 */
+}
+
+.tech-content-wrapper {
+  margin-top: 25px;
+  background: rgba(184, 142, 93, 0.05); /* 淡淡的咖啡主題色背景 */
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #b88e5d; /* 左側主題裝飾線 */
+}
+
+.tech-item {
+  margin-bottom: 20px;
+}
+
+.tech-item strong {
+  color: #b88e5d; /* 主題咖啡色 */
+  font-size: 1.1rem;
+}
+
+.tech-item i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.detail-list {
+  margin: 10px 0 0 28px;
+  list-style-type: circle;
+}
+
+.detail-list li {
+  margin-bottom: 8px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* 建立技術細節的卡片網格 */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.tech-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #b88e5d; /* 咖啡色主題邊框 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.project-screenshots {
+  display: flex;
+  justify-content: center; /* 讓圖片在頁面中央對齊 */
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.screenshot-item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 450px; /* 稍微加大寬度讓圖片更有氣勢 */
+  margin-bottom: 30px;
+  align-items: center; /* 讓圖片與描述文字水平置中 */
+}
+
+.screenshot-item img {
+  width: 100%;
+  height: auto; /* 確保比例正常 */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 增加陰影提升質感 */
+}
+
+.screenshot-item img:hover {
+  transform: translateY(-5px); /* 微互動效果 */
+}
+.project-video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 增加一點點陰影感 */
+  display: block; /* 移除下方多餘間隙 */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-video:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.screenshot-item.vertical {
+  flex: 0 0 250px; /* 不要佔滿一半寬度，直式的比較窄才好看 */
+  min-width: 200px; /* 限制手機畫面的寬度 */
+  margin: 0 auto; /* 居中 */
+}
+
+.screenshot-item:not(.vertical) {
+  flex: 1;
+}
+
+.screenshot-item.vertical .project-video {
+  width: 100%;
+  aspect-ratio: 9 / 16; /* 關鍵：改成直式比例 */
+  object-fit: cover;
+  border: 4px solid #333; /* 增加一個手機邊框感 */
+  border-radius: 20px; /* 確保手機畫面不被裁切 */
+}
+
+/* 如果是手機版，可以稍微調整間距 */
+@media (max-width: 768px) {
+  .screenshot-item {
+    margin-bottom: 20px;
+  }
+}
+
+.screenshot-item p {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 1.1rem; /* 字體稍微放大一點 */
+  font-weight: 500;
+  color: var(--text-color);
+  text-align: center;
+
+  /* 避免文字變成直向 */
+  writing-mode: horizontal-tb;
+}
+
+/* 容器樣式 */
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.video-placeholder img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.9); /* 讓縮圖稍微暗一點，凸顯播放鈕 */
+}
+
+/* 懸停效果 */
+.video-preview-link:hover .video-placeholder {
+  transform: scale(1.02);
+}
+
+.video-preview-link:hover .play-icon-overlay {
+  background: #b88e5d; /* 懸停時變亮 */
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(184, 142, 93, 0.5);
+}
+
+/* --- 針對手機與平板的全面優化 --- */
+@media (max-width: 768px) {
+  /* 1. 導覽列調整 */
+  .navbar {
+    padding: 10px 15px; /* 縮小左右內距 */
+  }
+  .nav-links {
+    gap: 5px; /* 縮小間距 */
+  }
+  .nav-links a {
+    font-size: 13px; /* 字體縮小 */
+  }
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: -1px;
+  }
+  .logo .bracket {
+    margin: 0 2px; /* 縮小括號間距 */
+  }
+
+  .toggle-btn {
+    padding: 3px 6px; /* 縮小按鈕內距 */
+    font-size: 10px; /* 縮小按鈕文字 */
+    margin-left: 2px; /* 減少按鈕左側間距 */
+    white-space: nowrap; /* 確保文字不會斷行 */
+  }
+
+  #home.active {
+    /* 1. 關鍵：將固定高度改為最小高度，允許內容向下延伸 */
+    height: auto;
+    min-height: 100vh;
+
+    /* 2. 讓內部卡片改為垂直排列 */
+    padding-top: 80px; /* 留出空間給固定在頂部的導覽列 */
+    padding-bottom: 40px;
+    display: block; /* 手機版改為區塊佈局，讓捲動更自然 */
+    overflow-y: auto; /* 強制開啟垂直捲動 */
+  }
+
+  /* 2. 首頁 Hero Card 變更為垂直排列 */
+  .hero-card {
+    flex-direction: column; /* 橫向變縱向 */
+    height: auto; /* 取消固定高度 */
+    width: 95%;
+  }
+
+  .card-left {
+    width: 100%;
+    padding: 30px;
+  }
+  .card-right {
+    width: 100%;
+    padding: 30px;
+    text-align: center; /* 手機版文字居中較美觀 */
+  }
+  .hello-text {
+    font-size: 50px; /* 縮小大標題文字 */
+  }
+
+  /* 3. 關於我區塊修正 */
+  .about-flex {
+    flex-direction: column; /* 圖片在上，文字在下 */
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+  .about-intro {
+    text-align: left; /* 內容描述維持靠左排版比較好讀 */
+  }
+  .about-info-grid {
+    grid-template-columns: 1fr; /* 資訊欄改為單欄 */
+    gap: 20px;
+  }
+
+  /* 4. 內容區塊間距調整 */
+  .content-section {
+    /* 確保所有分頁在手機版都能正常捲動 */
+    position: relative; /* 移除絕對定位，避免高度塌陷 */
+    padding-top: 10px;
+    height: auto;
+    min-height: calc(100vh - 60px);
+    overflow-y: visible; /* 讓外層 body 處理滾動 */
+  }
+
+  /* 5. 專案詳情頁調整 */
+  .project-card-full {
+    padding: 20px;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr; /* 技術細節在手機版單欄顯示 */
+  }
+  .screenshot-item {
+    flex: 0 1 100%; /* 圖片在手機版佔滿全寬 */
+  }
+  .link-wrapper {
+    flex-direction: column; /* 按鈕垂直排列 */
+    align-items: center;
+  }
+  .tech-card {
+    /* 1. 稍微縮減內距，讓文字有更多空間展開 */
+    padding: 15px;
+
+    /* 2. 減細邊框，防止在手機上顯得過於笨重 */
+    border-left-width: 3px;
+
+    /* 3. 增加下方間距，防止手機版垂直堆疊時卡片黏在一起 */
+    margin-bottom: 15px;
+
+    /* 4. 稍微縮小陰影，讓視覺更扁平、更適合小螢幕 */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  .project-tech-tag {
+    font-size: 0.8rem; /* 稍微縮小字體，確保長單字標籤不會太突兀 */
+    padding: 4px 10px; /* 調整內距，維持膠囊形狀的比例 */
+    border-radius: 15px; /* 保持圓角感 */
+    white-space: nowrap; /* 避免標籤內的文字被拆成兩行 */
+  }
+}

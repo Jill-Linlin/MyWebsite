@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      // 在 CSS 載入前就決定主題，防止白色閃屏
+      const savedTheme = localStorage.getItem("preferred-theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    </script>
+  </head>
+  <body class="detail-page">
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('home')"
+            ><span class="zh">首頁</span><span class="en">Home</span></a
+          >
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('about')"
+            ><span class="zh">關於我</span><span class="en">About</span></a
+          >
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleLang()">中/EN</button>
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="detail-header">
+        <h1 class="en-text">
+          <span class="zh">自動化工作流程</span>
+          <span class="en">Auto Workflow</span>
+        </h1>
+        <div class="project-tech-tag">
+          <span class="skill-tag">n8n</span>
+          <span class="skill-tag">Google Cloud Platform</span>
+          <span class="skill-tag">Json</span>
+          <span class="skill-tag">Javascript</span>
+          <span class="skill-tag">API Key</span>
+        </div>
+      </header>
+
+      <article class="detail-body">
+        <div class="project-card-full">
+          <section class="detail-section">
+            <h3 class="zh">開發背景</h3>
+            <h3 class="en">Background</h3>
+            <p class="zh">
+              在普魯士國際任職時，跨平台的重複性行政作業（如合約管理、發票處理及文件編寫）往往耗費大量人力且容易產生人為失誤。以下是我在職時打造的各式整合式的自動化生態系統，透過
+              n8n 流程自動化引擎與 AI 技術，串連 Google Workspace、Notion CRM
+              與雲端儲存空間。核心目標是實現「數據驅動」的自動化流，將原本破碎的作業程序轉化為高效率的智慧工作流，大幅降低手動輸入的需求，同時保留人工最後校閱的彈性。
+            </p>
+            <p class="en">
+              During my tenure at PlayPlus International, I observed that
+              repetitive cross-platform administrative tasks—such as contract
+              management, invoice processing, and documentation—were highly
+              labor-intensive and prone to human error. To address this, I
+              developed an integrated automation ecosystem leveraging the n8n
+              workflow engine and AI technology. By bridging Google Workspace,
+              Notion CRM, and cloud storage, I established data-driven
+              automation flows that transformed fragmented processes into
+              high-efficiency 'smart workflows.' This system significantly
+              reduces manual data entry while maintaining the flexibility for
+              final human verification.
+            </p>
+            <!-- <h3 class="zh">連結:</h3>
+            <h3 class="en">link:</h3> -->
+          </section>
+          <section class="detail-section">
+            <h3 class="zh section-title">技術細節</h3>
+            <h3 class="en section-title">Technical Details</h3>
+
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <span class="zh">自動化文件監測</span
+                  ><span class="en">Automated Document Monitoring</span>
+                </h4>
+                <p class="zh">
+                  利用雲端儲存空間作為觸發源
+                  (Event-driven)，實作自動化文件監測。透過解析年度續約文件與電子發票，系統能精準提取關鍵元數據
+                  (Metadata)。
+                </p>
+                <p class="en">
+                  Implemented event-driven document monitoring using cloud
+                  storage. The system precisely extracts key metadata from
+                  annual renewal documents and e-invoices.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-project-diagram"></i>
+                  <span class="zh">系統集成與自動化</span
+                  ><span class="en">System Integration & Automation</span>
+                </h4>
+                <p class="zh">
+                  透過 n8n 整合 Notion API 與 Gmail API。系統能主動在 Notion CRM
+                  中進行客戶比對，並動態生成 Gmail
+                  草稿，實現財務與業務資料的無縫對接。
+                </p>
+                <p class="en">
+                  Integrated Notion and Gmail APIs via n8n. The system performs
+                  customer matching in Notion CRM and dynamically generates
+                  Gmail drafts for seamless data synchronization.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-robot"></i>
+                  <span class="zh">AI 驅動文檔處理</span
+                  ><span class="en">AI-Driven Documentation</span>
+                </h4>
+                <p class="zh">
+                  使用 Google Apps Script 串聯 OpenAI/Gemini
+                  API。透過提示工程將原始技術文件轉換為結構化操作手冊，並利用
+                  Google Docs API 實現自動化排版。
+                </p>
+                <p class="en">
+                  Utilized Google Apps Script to connect OpenAI/Gemini APIs.
+                  Transformed raw docs into structured manuals via Prompt
+                  Engineering with automated Google Docs formatting.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h3 class="zh">開發畫面</h3>
+            <h3 class="en">System Screenshots</h3>
+            <div class="project-screenshots">
+              <div class="screenshot-item">
+                <video class="project-video" autoplay muted loop playsinline>
+                  <source
+                    src="../Assets/p3/自動年度續約寄信.mov"
+                    type="video/mp4"
+                  />
+
+                  Your browser does not support the video tag.
+                </video>
+                <p class="zh">自動寄信續約模組</p>
+                <p class="en">Auto_Renewal_Job</p>
+              </div>
+              <div class="screenshot-item">
+                <video class="project-video" autoplay muted loop playsinline>
+                  <source
+                    src="../Assets/p3/自動發票寄信.mov"
+                    type="video/mp4"
+                  />
+
+                  Your browser does not support the video tag.
+                </video>
+                <p class="zh">自動發票寄信</p>
+                <p class="en">Invoice_Auto_Sender</p>
+              </div>
+              <div class="screenshot-item">
+                <video class="project-video" autoplay muted loop playsinline>
+                  <source
+                    src="../Assets/p3/操作手冊錄影畫面.mp4"
+                    type="video/mp4"
+                  />
+
+                  Your browser does not support the video tag.
+                </video>
+                <p class="zh">操作手冊</p>
+                <p class="en">Operation Manual</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

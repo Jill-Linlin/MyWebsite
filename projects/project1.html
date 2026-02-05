@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      // 在 CSS 載入前就決定主題，防止白色閃屏
+      const savedTheme = localStorage.getItem("preferred-theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    </script>
+  </head>
+  <body class="detail-page">
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('home')"
+            ><span class="zh">首頁</span><span class="en">Home</span></a
+          >
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="showSection('about')"
+            ><span class="zh">關於我</span><span class="en">About</span></a
+          >
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleLang()">中/EN</button>
+        </li>
+        <li>
+          <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="detail-header">
+        <h1 class="en-text">
+          <span class="zh">Task Management System</span>
+          <span class="en">Task Management System</span>
+        </h1>
+        <div class="project-tech-tag">
+          <span class="skill-tag">JAVA</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">RESTful API</span>
+          <span class="skill-tag">REACT</span>
+          <span class="skill-tag">Javascript</span>
+          <span class="skill-tag">CSS</span>
+        </div>
+      </header>
+
+      <article class="detail-body">
+        <div class="project-card-full">
+          <section class="detail-section">
+            <h3 class="zh">開發背景</h3>
+            <h3 class="en">Background</h3>
+            <p class="zh">
+              本專案為個人首個基於 Java Spring Boot 與 React 框架開發的全端 Web
+              系統。開發目標是建立一個安全、直觀的任務管理平台。 後端採用 Maven
+              進行專案構建，利用 JPA/Hibernate 實作資料持久化層，串接 MySQL
+              資料庫。前端則使用 React 打造響應式介面，並透過 JWT
+              協定確保使用者登入安全性。此專案完整涵蓋了從資料庫設計、後端
+              RESTful API 開發到前端 UI
+              渲染與權限控管的全過程，體現了對全端開發流程的掌握。
+            </p>
+            <p class="en">
+              This project is my first full-stack web system developed using the
+              Java Spring Boot and React frameworks. The goal was to build a
+              secure and intuitive task management platform. The backend
+              utilizes Maven for project construction and leverages
+              JPA/Hibernate for the data persistence layer, integrated with a
+              MySQL database. On the frontend, React was used to create a
+              responsive interface, with JWT implemented to ensure secure user
+              authentication. This project covers the entire development
+              lifecycle—from database design and backend RESTful API development
+              to frontend UI rendering and access control—demonstrating a solid
+              grasp of the full-stack development process.
+            </p>
+
+            <div class="link-wrapper">
+              <h3 class="zh">連結:</h3>
+              <h3 class="en">Link:</h3>
+
+              <a
+                href="https://github.com/Jill-Linlin/Front_Task_System"
+                target="_blank"
+                class="github-link"
+              >
+                <i class="fa-brands fa-github"></i>
+                <span class="zh">前端程式碼 (Frontend)</span>
+                <span class="en">Frontend Repo</span>
+              </a>
+
+              <a
+                href="https://github.com/Jill-Linlin/Task-Manage-System"
+                target="_blank"
+                class="github-link"
+              >
+                <i class="fa-brands fa-github"></i>
+                <span class="zh">後端程式碼 (Backend)</span>
+                <span class="en">Backend Repo</span>
+              </a>
+            </div>
+          </section>
+          <section class="detail-section">
+            <h3 class="zh section-title">技術細節</h3>
+            <h3 class="en section-title">Technical Details</h3>
+
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-sitemap"></i>
+                  <span class="zh">整體架構</span
+                  ><span class="en">Architecture</span>
+                </h4>
+                <p class="zh">
+                  採用前後端分離架構。後端負責業務邏輯處理，前端負責 UI 渲染。
+                </p>
+                <p class="en">
+                  Adopted a decoupled frontend-backend architecture. Backend
+                  handles business logic while frontend manages UI rendering.
+                </p>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fab fa-react"></i>
+                  <span class="zh">前端開發</span
+                  ><span class="en">Frontend Development</span>
+                </h4>
+                <ul class="zh">
+                  <li><strong>框架:</strong> React.js (JavaScript)</li>
+                  <li><strong>特點:</strong> 負責 UI 渲染與組件化狀態管理</li>
+                </ul>
+                <ul class="en">
+                  <li><strong>Framework:</strong> React.js (JavaScript)</li>
+                  <li>
+                    <strong>Features:</strong> Responsible for UI rendering and
+                    component-based state management.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-server"></i>
+                  <span class="zh">後端與持久層</span
+                  ><span class="en">Backend & Persistence</span>
+                </h4>
+                <ul class="zh">
+                  <li>
+                    <strong>Spring Boot 3.x</strong> & <strong>Maven</strong>
+                  </li>
+                  <li>透過 <strong>JPA/Hibernate</strong> 實作 ORM。</li>
+                  <li>設計標準 <strong>RESTful APIs</strong> 進行 CRUD。</li>
+                </ul>
+                <ul class="en">
+                  <li>
+                    <strong>Spring Boot 3.x</strong> & <strong>Maven</strong>
+                  </li>
+                  <li>Implemented ORM via <strong>JPA/Hibernate</strong>.</li>
+                  <li>
+                    Designed standard <strong>RESTful APIs</strong> for CRUD
+                    operations.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tech-card">
+                <h4>
+                  <i class="fas fa-lock"></i>
+                  <span class="zh">安全與資料庫</span
+                  ><span class="en">Security & Database</span>
+                </h4>
+                <p class="zh">
+                  實作 <strong>JWT</strong> 無狀態驗證系統；資料庫使用
+                  <strong>MySQL</strong>。
+                </p>
+                <p class="en">
+                  Implemented <strong>JWT</strong> stateless authentication;
+                  used <strong>MySQL</strong> for the database.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h3 class="zh">開發畫面</h3>
+            <h3 class="en">System Screenshots</h3>
+            <div class="project-screenshots">
+              <div class="screenshot-item">
+                <img src="../Assets/p1/p1手寫.jpg" alt="概念手寫稿" />
+                <p class="zh">系統概念手寫稿(SQL架構)</p>
+                <p class="en">System Concept Sketch (SQL Architecture)</p>
+              </div>
+              <div class="screenshot-item">
+                <video
+                  class="project-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  poster="../assets/1.png"
+                >
+                  <source src="../assets/p1/TaskSystem.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="zh">任務管理範例影片(可點擊全螢幕)</p>
+                <p class="en">Task Management Demo(Click for Fullscreen)</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
