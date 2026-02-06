@@ -1,3 +1,15 @@
+body,
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s;
+}
 /* 針對整個頁面的捲動條 */
 ::-webkit-scrollbar {
   width: 10px;
@@ -38,19 +50,6 @@
 }
 [lang="en"] .zh {
   display: none;
-}
-
-body,
-html {
-  margin: 0;
-  height: auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-  font-family: "Microsoft JhengHei", Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: 0.3s;
-  scroll-behavior: smooth;
 }
 
 /* 導覽列 */
