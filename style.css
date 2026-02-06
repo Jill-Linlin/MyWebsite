@@ -151,33 +151,58 @@ html {
 .hero-card {
   display: flex;
   flex-direction: row;
-  width: 950px;
-  max-width: 90%;
-  height: 550px;
+  width: 90%;
+  max-width: 950px;
+  min-height: 550px;
+  height: auto;
   background: var(--card-bg);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
   overflow: hidden;
+  margin: 20px auto;
 }
 
 .card-left {
   background: var(--accent-color);
-  width: 40%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 40px 20px;
   color: white;
   box-sizing: border-box;
 }
 .card-right {
-  width: 60%;
-  padding: 60px;
+  width: 65%;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
+  overflow: hidden;
+}
+.card-right p {
+  margin: 0;
+  line-height: 1.6;
+  word-wrap: break-word; /* 確保長單字會自動斷行 */
+}
+
+.card-btns {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cv-download-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-download-btn i {
+  margin-right: 8px;
 }
 
 .profile-img-wrapper img {
@@ -736,7 +761,7 @@ html {
     background: var(--navbar-bg); /* 改用純色 */
   }
   .nav-links {
-    gap: 5px; /* 縮小間距 */
+    gap: 4px; /* 縮小間距 */
   }
   .nav-links a {
     font-size: 13px; /* 字體縮小 */
@@ -752,6 +777,18 @@ html {
   .card-desc {
     color: var(--desc-text);
     line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .card-btns {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card-btns .btn {
+    flex: 1; /* 讓按鈕在手機版平分寬度 */
+    max-width: 140px;
+    padding: 10px 8px;
     font-size: 14px;
   }
 
