@@ -1,6 +1,7 @@
 body,
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   margin: 0;
   height: auto;
   overflow-y: auto;
@@ -778,7 +779,7 @@ html {
     padding-top: 80px; /* 留出空間給固定在頂部的導覽列 */
     padding-bottom: 40px;
     display: block; /* 手機版改為區塊佈局，讓捲動更自然 */
-    overflow-y: auto; /* 強制開啟垂直捲動 */
+    overflow-y: visible; /* 強制開啟垂直捲動 */
   }
 
   /* 2. 首頁 Hero Card 變更為垂直排列 */
