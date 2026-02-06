@@ -275,25 +275,6 @@ html {
   transform: scale(1.05); /* 滑鼠移上去稍微放大 */
 }
 
-/* 手機版適配：當螢幕寬度小於 768px 時，圖片排到文字上方 */
-@media (max-width: 768px) {
-  .about-flex {
-    display: flex;
-    justify-content: center; /* 讓內容在超大螢幕時水平置中 */
-    align-items: flex-start;
-    gap: 50px; /* 照片與文字的固定間距，你可以調小一點 */
-
-    max-width: 1100px; /* 關鍵：限制最大寬度，防止在大螢幕散開 */
-    margin: 0 auto; /* 關鍵：讓整個容器置中 */
-    padding: 40px 20px;
-  }
-
-  .about-photo img {
-    width: 200px;
-    height: 200px;
-  }
-}
-
 .about-content-wrapper {
   display: flex;
   flex-direction: column;
@@ -693,13 +674,6 @@ html {
   border-radius: 20px; /* 確保手機畫面不被裁切 */
 }
 
-/* 如果是手機版，可以稍微調整間距 */
-@media (max-width: 768px) {
-  .screenshot-item {
-    margin-bottom: 20px;
-  }
-}
-
 .screenshot-item p {
   width: 100%;
   margin-top: 15px;
@@ -773,6 +747,22 @@ html {
     margin: 0 2px; /* 縮小括號間距 */
   }
 
+  .about-flex {
+    display: flex;
+    justify-content: center; /* 讓內容在超大螢幕時水平置中 */
+    align-items: flex-start;
+    gap: 50px; /* 照片與文字的固定間距，你可以調小一點 */
+
+    max-width: 1100px; /* 關鍵：限制最大寬度，防止在大螢幕散開 */
+    margin: 0 auto; /* 關鍵：讓整個容器置中 */
+    padding: 40px 20px;
+  }
+
+  .about-photo img {
+    width: 200px;
+    height: 200px;
+  }
+
   .toggle-btn {
     padding: 3px 6px; /* 縮小按鈕內距 */
     font-size: 10px; /* 縮小按鈕文字 */
@@ -844,11 +834,18 @@ html {
     padding: 20px;
   }
 
+  .detail-header h1 {
+    font-size: 1.8rem !important;
+    padding: 10px !important;
+  }
+
   .tech-grid {
     grid-template-columns: 1fr; /* 技術細節在手機版單欄顯示 */
   }
+
   .screenshot-item {
-    flex: 0 1 100%; /* 圖片在手機版佔滿全寬 */
+    flex: 0 1 100%;
+    margin-bottom: 20px;
   }
   .link-wrapper {
     flex-direction: column; /* 按鈕垂直排列 */
@@ -868,9 +865,29 @@ html {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
   .project-tech-tag {
-    font-size: 0.8rem; /* 稍微縮小字體，確保長單字標籤不會太突兀 */
-    padding: 4px 10px; /* 調整內距，維持膠囊形狀的比例 */
-    border-radius: 15px; /* 保持圓角感 */
-    white-space: nowrap; /* 避免標籤內的文字被拆成兩行 */
+    display: flex;
+    flex-wrap: wrap; /* 務必允許換行 */
+    justify-content: center; /* 標籤居中 */
+    gap: 8px !important; /* 縮小間距 */
+    padding: 0 10px !important;
+    white-space: normal !important; /* 避免標籤內的文字被拆成兩行 */
+  }
+
+  .project-tech-tag span {
+    font-size: 0.75rem !important; /* 稍微縮小標籤字體 */
+    padding: 4px 10px !important;
+    margin: 0 !important; /* 移除可能干擾的 margin */
+  }
+
+  .project-card-full {
+    padding: 25px 15px !important; /* 減少外層卡片的內距 */
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .detail-section p {
+    font-size: 15px; /* 稍微縮小內文 */
+    line-height: 1.6;
+    text-align: justify; /* 讓左右對齊更美觀 */
   }
 }
