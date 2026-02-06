@@ -781,35 +781,37 @@ html {
   }
 
   #home.active {
-    /* 1. 關鍵：將固定高度改為最小高度，允許內容向下延伸 */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center; /* 水平置中 */
+    justify-content: flex-start; /* 從頂部開始，避免導覽列遮擋 */
+    padding-top: 80px; /* 給導覽列留空間 */
     height: auto;
     min-height: 100vh;
-
-    /* 2. 讓內部卡片改為垂直排列 */
-    padding-top: 80px; /* 留出空間給固定在頂部的導覽列 */
-    padding-bottom: 40px;
-    display: block; /* 手機版改為區塊佈局，讓捲動更自然 */
-    overflow-y: visible; /* 強制開啟垂直捲動 */
+    overflow-y: auto;
   }
 
   /* 2. 首頁 Hero Card 變更為垂直排列 */
   .hero-card {
-    flex-direction: column; /* 橫向變縱向 */
-    height: auto; /* 取消固定高度 */
-    width: 95%;
+    flex-direction: column; /* 強制上下排列 */
+    width: 92% !important; /* 寬度稍微縮小，避免貼邊 */
+    max-width: 400px; /* 限制最大寬度防止在平板上太寬 */
+    height: auto !important; /* 取消 550px 的固定高度 */
+    margin: 0 auto 30px auto; /* 靠 margin auto 實現水平置中 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
   .card-left {
     width: 100%;
-    padding: 30px;
+    padding: 30px 15px;
   }
   .card-right {
     width: 100%;
-    padding: 30px;
+    padding: 30px 20px;
     text-align: center; /* 手機版文字居中較美觀 */
   }
   .hello-text {
-    font-size: 50px; /* 縮小大標題文字 */
+    font-size: 45px; /* 縮小大標題文字 */
   }
 
   /* 3. 關於我區塊修正 */
