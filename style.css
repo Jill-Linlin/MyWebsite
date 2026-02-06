@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@400;700&display=swap");
 body,
 html {
   /* scroll-behavior: smooth;
@@ -5,11 +6,13 @@ html {
   margin: 0;
   height: auto;
   overflow-y: visible;
-  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  font-family: "Lora", "Noto Serif TC", "Microsoft JhengHei", serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: 0.3s;
 }
+
+/* "Microsoft JhengHei", */
 /* 針對整個頁面的捲動條 */
 ::-webkit-scrollbar {
   width: 10px;
@@ -747,6 +750,12 @@ html {
     margin: 0 2px; /* 縮小括號間距 */
   }
 
+  .card-desc {
+    color: var(--desc-text);
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
   .about-flex {
     display: flex;
     justify-content: center; /* 讓內容在超大螢幕時水平置中 */
@@ -814,6 +823,15 @@ html {
   .about-intro {
     text-align: left; /* 內容描述維持靠左排版比較好讀 */
   }
+
+  .about-intro .en {
+    font-family: "Crimson Text", serif;
+    font-size: 16px; /* 英文通常看起來較小，稍微調大一點 */
+  }
+
+  .about-intro .zh {
+    font-size: 14px; /* 英文通常看起來較小，稍微調大一點 */
+  }
   .about-info-grid {
     grid-template-columns: 1fr; /* 資訊欄改為單欄 */
     gap: 20px;
@@ -828,15 +846,33 @@ html {
     min-height: calc(100vh - 60px);
     overflow-y: visible; /* 讓外層 body 處理滾動 */
   }
+  body.detail-page {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 防止左右晃動 */
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 
   /* 5. 專案詳情頁調整 */
   .project-card-full {
     padding: 20px;
   }
 
+  .detail-header {
+    padding: 80px 15px 20px 15px !important; /* 上方留給 Navbar 的空間 */
+    text-align: center;
+  }
+
   .detail-header h1 {
-    font-size: 1.8rem !important;
+    font-size: 1.6rem !important;
     padding: 10px !important;
+    word-break: break-word;
   }
 
   .tech-grid {
@@ -870,6 +906,8 @@ html {
     justify-content: center; /* 標籤居中 */
     gap: 8px !important; /* 縮小間距 */
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
     white-space: normal !important; /* 避免標籤內的文字被拆成兩行 */
   }
 
@@ -880,14 +918,16 @@ html {
   }
 
   .project-card-full {
-    padding: 15px 15px !important; /* 減少外層卡片的內距 */
-    width: 95%;
-    margin: 10px auto;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important; /* 滿版時移除圓角，視覺更俐落 */
+    padding: 30px 20px !important; /* 這裡的 Padding 控制文字與螢幕邊緣的距離 */
+    box-shadow: none !important; /* 滿版時不需要陰影 */
+    box-sizing: border-box;
   }
 
   .detail-section p {
     font-size: 15px; /* 稍微縮小內文 */
     line-height: 1.6;
-    text-align: justify; /* 讓左右對齊更美觀 */
   }
 }
