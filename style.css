@@ -744,9 +744,20 @@ html {
 
 /* --- 針對手機與平板的全面優化 --- */
 @media (max-width: 768px) {
+  html,
+  body {
+    scroll-behavior: auto !important; /* 手機版改回傳統捲動 */
+  }
+
+  ::-webkit-scrollbar {
+    display: none; /* 手機版不顯示自定義捲動條，避免計算衝突 */
+  }
+
   /* 1. 導覽列調整 */
   .navbar {
     padding: 10px 15px; /* 縮小左右內距 */
+    backdrop-filter: none; /* 關閉毛玻璃 */
+    background: var(--navbar-bg); /* 改用純色 */
   }
   .nav-links {
     gap: 5px; /* 縮小間距 */
