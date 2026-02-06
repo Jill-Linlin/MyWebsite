@@ -1,11 +1,10 @@
 body,
 html {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  /* scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; */
   margin: 0;
   height: auto;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow-y: visible;
   font-family: "Microsoft JhengHei", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
